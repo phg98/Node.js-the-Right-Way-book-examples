@@ -3,16 +3,23 @@
 const 
     fs = require ('fs'),
     spawn = require('child_process').spawn,
-    filename = process.argv[2],
+    filename = 'target.txt', //process.argv[2],
     net = require('net'),
     server = net.createServer(function  (connection) {
         // reporting
         console.log('subscriber connected.');
-        connection.write("Now watching '" + filename + "' for changes...\n");
+        connection.write(JSON.stringify({
+            type: 'watching',
+            file: filename
+        }) + '\n');
 
         // watcher setup
         let watcher = fs.watch(filename, function  ( ) {
-            connection.write("File '" + filename + "' changed! " + Date.now() + "\n");
+            connection.write(JSON.stringify({
+                type: 'changed',
+                file : filename,
+                timestamp : Date.now()
+            }) + "\n");
         });
 
         // clean up
