@@ -2,7 +2,6 @@
 "use strict" ;
 const 
     fs = require ('fs'),
-    spawn = require('child_process').spawn,
     filename = 'target.txt', //process.argv[2],
     net = require('net'),
     server = net.createServer(function  (connection) {
