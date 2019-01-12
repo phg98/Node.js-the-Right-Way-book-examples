@@ -1,5 +1,5 @@
 // Example code for the book "Node.js the Right Way"
-"use strict" ;
+"use strict";
 const 
     fs = require ('fs'),
     filename = 'target.txt', //process.argv[2],
