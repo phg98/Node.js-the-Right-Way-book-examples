@@ -1,7 +1,6 @@
 // Example code for the book "Node.js the Right Way"
 "use strict" ;
 const 
-    fs = require ('fs'),
     net = require('net'),
     server = net.createServer(function  (connection) {
         // reporting
